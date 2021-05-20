@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">NotesApp</string>
+    <string name="notes">Notes</string>
+    <string name="characters_left">characters left:</string>
+    <string name="_0">0</string>
+    <string name="_40">/40</string>
+    <string name="save">save</string>
+    <string name="enter_a_note">Enter a note description</string>
+    <string name="put_a_note">Put a note</string>
+    <string name="share">share</string>
+</resources>
