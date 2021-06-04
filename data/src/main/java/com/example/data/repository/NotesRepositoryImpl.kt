@@ -6,6 +6,7 @@ import com.example.domain.entity.Note
 import com.example.domain.repository.NotesRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
@@ -15,6 +16,7 @@ class NotesRepositoryImpl(
 
     override fun getAllNotes(): Flow<List<Note>> {
         return database.noteDao().getAllNotes().map { it.map { item -> item.toNote() } }
+            .flowOn(Dispatchers.IO)
     }
 
     override suspend fun insertNote(note: Note) = withContext(Dispatchers.IO) {

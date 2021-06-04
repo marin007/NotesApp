@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -68,7 +69,7 @@ class NotesListFragment : BaseFragment<NotesFragmentBinding, NotesViewModel>() {
         binding.recyclerView.addItemDecoration(getRecycleViewDivider(secureContext))
         binding.recyclerView.setHasFixedSize(false)
         binding.recyclerView.layoutManager = LinearLayoutManager(secureContext)
-        viewModel.notes.observe(this) {
+        viewModel.notes.observe(viewLifecycleOwner) {
             loadNotesData(it)
         }
         viewModel.clearNoteData()
